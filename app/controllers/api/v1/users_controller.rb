@@ -22,7 +22,7 @@ module Api
 
         render json: { status: 'success!', user: user.as_json(include: {
                                                                 podcasts: [], books: [], user_podcast_favorites: [],
-                                                                user_podcast_viewa: [], user_book_views: [], user_book_favorites: []
+                                                                user_podcast_views: [], user_book_views: [], user_book_favorites: []
 
                                                               }) }
       end
