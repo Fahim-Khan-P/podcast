@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Podcast from './components/Podcast'
+import Book from './components/Book'
+
 import './App.css'
+import HomePage from './pages/Home';
+import HomeSharedLayout from './pages/layouts/HomeSharedLayout';
+import AllBooksSharedLayout from './pages/layouts/AllBooksSharedLayout';
+import BookPage from './pages/Book';
+import AllBooks from './pages/AllBooks';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <Routes>
+          <Route path="/" element={<HomeSharedLayout />}>
+            <Route index element = { <HomePage />} /> 
+            <Route path="/book" element={<Book />} />
+            <Route path="/podcast" element={<Podcast />} />
+            <Route path="/all-books" element={<AllBooksSharedLayout />} >
+              <Route index element = {<AllBooks />} />
+              <Route path=':id' element = {<BookPage />} />
+            </Route>
+          </Route>
+        </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

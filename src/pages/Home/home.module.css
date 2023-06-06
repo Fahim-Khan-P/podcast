@@ -1,0 +1,45 @@
+.homeMianDiv {
+  margin: 24px;
+}
+
+.PodBookInHomePage {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 40vh;
+  height: 50vh;
+  position: relative; /* Set the position to relative */
+}
+
+.rootDivOfPodBook {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 24px;
+}
+
+/* Add an animation and transition to the PodBookInHomePage div */
+.PodBookInHomePage:hover {
+  transform: scale(1.05); /* Scale up the div on hover */
+  transition: transform 0.2s ease-in-out; /* Add a smooth transition */
+  z-index: 1; /* Bring the div to the foreground on hover */
+}
+
+.PodBookInHomePage::before {
+  content: ""; /* Add a pseudo-element */
+  position: absolute; /* Set the position to absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent background */
+  opacity: 0; /* Hide the background initially */
+  transition: opacity 0.2s ease-in-out; /* Add a smooth transition */
+}
+
+.PodBookInHomePage:hover::before {
+  opacity: 1; /* Show the background on hover */
+}
