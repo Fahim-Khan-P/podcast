@@ -1,11 +1,21 @@
+/* eslint-disable react/prop-types */
+// import { fetchpodcasts } from '../redux/podcastsSlice';
 
-const Podcast = () => {
+import { Link } from 'react-router-dom';
 
+
+const Podcast = ({ podcast }) => {
+ 
   return (
-    <div>
-      <h1>Welcome to My Podcast and Book App!</h1>
-      <h2>Featured Podcasts</h2>
-    </div>
+    <Link to = {`${podcast.id}`}>
+
+        <div className="podcast-container">
+          <h2 className="title">{podcast?.producer}</h2>
+          <h3 className="author">{podcast?.id}</h3>
+         
+      </div>
+    </Link>
+
   );
 };
 

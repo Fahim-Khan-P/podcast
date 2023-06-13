@@ -8,12 +8,14 @@ const HomePage = () => {
         <div className={styles.PodBookInHomePage}>
           <div alt="books" className={styles.img1} />
           <Link to="/all-books">
-            <button>View all books</button>
+            <button>View all Books</button>
           </Link>
         </div>
         <div className={styles.PodBookInHomePage}>
           <div alt="podcasts" className={styles.img2} />
-          <button>View all books</button>
+          <Link to="/all-podcasts">
+            <button>View all Podcasts</button>
+          </Link>
         </div>
       </div>
     </div>
