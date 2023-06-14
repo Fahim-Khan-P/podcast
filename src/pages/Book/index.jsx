@@ -8,14 +8,15 @@ function BookPage() {
   const { id } = useParams()
   const book = useSelector((state) => state.books.showBook)
   const dispatch = useDispatch()
-
+  
   useEffect(() => {
     dispatch(getBook(id))
   },[dispatch, id])
 
   return (
     <div>
-      {book.name}
+      {book.name}<br></br>
+      {book.id}
     </div>
   )
 }
